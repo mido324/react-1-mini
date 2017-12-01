@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 class App extends Component {
@@ -11,6 +11,18 @@ class App extends Component {
       name: '',
     }
   }
+
+updatePicture(value) {
+this.setState({
+  picture: value
+})
+}
+updateName(value) {
+  this.setState({
+    name: value
+  })
+}
+
   render() {
     
      
@@ -19,11 +31,12 @@ class App extends Component {
       <div>
       <span>Picture:</span>
 Picture :
-       <input />
+       <input onChange={event => this.updatePicture(event.target.value)} value = {this.state.picture} />
        Name:
-        <input />
+        <input onChange={event => this.updateName(event.target.value)} value ={this.state.name}/>
 
         <button className="buttom">Add a friend</button>
+        state: {JSON.stringify(this.state)}
       </div>
     );
   }
